@@ -62,4 +62,4 @@ namespace tend
 			int get_Entity_Id();
 			std::string get_Data();
 	};
-}
+} // namespace tend
