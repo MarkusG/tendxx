@@ -6,60 +6,44 @@ namespace tend
 {
 	std::string version();
 
-	class Entity
+	struct Entity
 	{
-		private:
-			int id_;
-			time_t created_;
-			std::optional<time_t> updated_;
+			int id;
+			std::time_t created;
+			std::optional<std::time_t> updated;
 
-		public:
-			int get_Id();
-			time_t get_Created();
-			std::optional<time_t> get_Updated();
+			Entity(const int id, const std::time_t created, std::optional<std::time_t> updated);
 	};
 
-	class Alias : public Entity
+	struct Alias : public Entity
 	{
-		private:
-			int entity_id_;
-			std::string name_;
+			Entity& entity;
+			std::string name;
 
-		public:
-			int get_Entity_Id();
-			std::string get_Name();
+			Alias(const int id, const std::time_t created, std::optional<std::time_t> updated, Entity& entity, std::string name);
 	};
 
-	class Relation : public Entity
+	struct Relation : public Entity
 	{
-		private:
-			int entity_a_id_;
-			int entity_b_id_;
+			Entity& entity_a;
+			Entity& entity_b;
 
-		public:
-			int get_Entity_A_Id();
-			int get_Entity_B_Id();
+			Relation(const int id, const std::time_t created, std::optional<std::time_t> updated, Entity& entity_a, Entity& entity_b);
 	};
 
-	class RelationSnippet : public Entity
+	struct RelationSnippet : public Entity
 	{
-		private:
-			int relation_id_;
+			Relation& relation;
 			std::string data;
 
-		public:
-			int get_Relation_Id();
-			std::string get_Data();
+			RelationSnippet(const int id, const std::time_t created, std::optional<std::time_t> updated, Relation& relation, std::string data);
 	};
 
-	class Snippet : public Entity
+	struct Snippet : public Entity
 	{
-		private:
-			int entity_id_;
+			Entity& entity;
 			std::string data;
-			
-		public:
-			int get_Entity_Id();
-			std::string get_Data();
+
+			Snippet(const int id, const std::time_t created, std::optional<std::time_t> updated, Entity& entity, std::string data);
 	};
 } // namespace tend
