@@ -1,3 +1,6 @@
+#ifndef TENDXX_TEND_H_
+#define TENDXX_TEND_H_
+
 #include <string>
 #include <optional>
 #include <ctime>
@@ -48,3 +51,4 @@ struct Snippet : public Entity
 };
 
 } // namespace tend
+#endif // TENDXX_TEND_H_
