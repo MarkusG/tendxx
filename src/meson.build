@@ -3,4 +3,7 @@ configure_file(
   output : 'version.h',
   configuration : conf_data)
 
-libtend = shared_library('tend', 'main.cpp', include_directories : includedir)
+libtend = shared_library('tend',
+                         'main.cpp',
+                         include_directories : includedir,
+                         dependencies : deps)

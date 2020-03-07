@@ -13,6 +13,11 @@ conf_data.set('version', meson.project_version())
 
 includedir = include_directories('include')
 
+deps = [
+  dependency('libpq'),
+  dependency('libpqxx')
+]
+
 # subdir('include')
 subdir('src')
 subdir('app')
