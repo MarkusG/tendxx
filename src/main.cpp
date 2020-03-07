@@ -26,3 +26,5 @@ RelationSnippet::RelationSnippet(const int id, const std::time_t created, std::o
 Snippet::Snippet(const int id, const std::time_t created, std::optional<std::time_t> updated, Entity& entity, std::string data)
 	: Entity(id, created, updated), entity(entity), data(data) {};
 }
+
+}; // namespace tend
